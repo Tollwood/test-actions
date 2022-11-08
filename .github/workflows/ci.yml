@@ -2,13 +2,23 @@ name: CI
 on: [push]
 jobs:
   build:
-    name: Test
+    name: build
     runs-on: ubuntu-latest
     steps:
+      # Checkout SCM Clone sources
       - uses: actions/checkout@v2
+      # Yarn install dependencies
       - uses: borales/actions-yarn@v3.0.0
         with:
-          cmd: install # will run `yarn install` command
+          cmd: install
+      # Test
+      # SonarQube Analysis Quality Gate
+      # Set new version
+      # Build
       - uses: borales/actions-yarn@v3.0.0
         with:
           cmd: build # will run `yarn build` command
+      # Push new version
+      # Build and Publish Docker image
+      # Deploy to Dev Env
+      # Declarative Post Actions
